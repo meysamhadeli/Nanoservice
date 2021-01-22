@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nanoservice-dpl
+spec:
+ replicas: 3
+ selector:
+  matchLabels:
+    name: nanoservice
+ template:
+   metadata:
+     labels:
+       name: nanoservice
+   spec:
+     containers:
+     - name: nanoservice
+       image: meysamh66/nanoservice
+       imagePullPolicy: IfNotPresent
+       ports:
+       - containerPort: 5000
