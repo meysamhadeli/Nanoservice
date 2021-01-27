@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: single-default-backend-ingress
+spec:
+  rules:
+  - host: nginxhello-default.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginxhello-default
+          servicePort: 8080
